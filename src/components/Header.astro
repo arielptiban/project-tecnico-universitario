@@ -1,20 +1,18 @@
 ---
-import Escudo from "@/components/Escudo.astro";
+import Escudo from "../components/Escudo.astro";
 ---
 
 <header
     id="landing-header"
-    class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40"
+    class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-black"
 >
     <div class="flex flex-grow basis-0">
-        <a href="#home">
-            <img src="/src/assets/escudo.svg" alt="" />
-        </a>
+        <a href="#home"><Escudo /></a>
     </div>
 
     <nav class="hidden xl:block sm:hidden">
         <ul
-            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]: font-medium [&>li>a]:text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+            class="flex [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]: font-medium [&>li>a]: text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
         >
             <li><a href="/">Inicio</a></li>
             <li><a href="#model-S">Noticias</a></li>
@@ -25,7 +23,7 @@ import Escudo from "@/components/Escudo.astro";
     </nav>
     <nav class="flex flex-grow justify-end basis-0">
         <ul
-            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+            class="flex [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]: text-base [&>li>a]:text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
         >
             <li class="hidden xl:block sm:hidden">
                 <a
@@ -41,8 +39,12 @@ import Escudo from "@/components/Escudo.astro";
                     rel="noopener noreferrer">Entradas</a
                 >
             </li>
-            <li class="hidden xl:block sm:hidden"><a href="#">Contacto</a></li>
-            <li class="xl:hidden"><a id="menu-btn" href="#">Menú</a></li>
+            <li class="hidden xl:block sm:hidden">
+                <a href="#">Contacto</a>
+            </li>
+            <li class="xl:hidden">
+                <a id="menu-btn" href="#">Menú</a>
+            </li>
         </ul>
     </nav>
 
@@ -67,17 +69,7 @@ import Escudo from "@/components/Escudo.astro";
             >
                 <li>
                     <a href="#model-S">
-                        Inicio
-                        <img
-                            class="h-5"
-                            alt="arrow icon"
-                            src="/arrow-icon.svg"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a href="#model-S">
-                        Noticias
+                        Model S
                         <img
                             class="h-5"
                             alt="arrow icon"
@@ -87,7 +79,7 @@ import Escudo from "@/components/Escudo.astro";
                 </li>
                 <li>
                     <a href="#model-3">
-                        Multimedia
+                        Model 3
                         <img
                             class="h-5"
                             alt="arrow icon"
@@ -97,7 +89,7 @@ import Escudo from "@/components/Escudo.astro";
                 </li>
                 <li>
                     <a href="#model-X">
-                        Equipo
+                        Model X
                         <img
                             class="h-5"
                             alt="arrow icon"
@@ -107,7 +99,7 @@ import Escudo from "@/components/Escudo.astro";
                 </li>
                 <li>
                     <a href="#model-Y">
-                        Tienda
+                        Model Y
                         <img
                             class="h-5"
                             alt="arrow icon"
@@ -116,8 +108,8 @@ import Escudo from "@/components/Escudo.astro";
                     </a>
                 </li>
                 <li>
-                    <a href="#model-Y">
-                        Entradas
+                    <a href="#power-wall">
+                        Powerwall
                         <img
                             class="h-5"
                             alt="arrow icon"
@@ -126,8 +118,8 @@ import Escudo from "@/components/Escudo.astro";
                     </a>
                 </li>
                 <li>
-                    <a href="#model-Y">
-                        Contacto
+                    <a href="#carga">
+                        Carga
                         <img
                             class="h-5"
                             alt="arrow icon"
