@@ -1,22 +1,23 @@
 ---
 import "@fontsource-variable/geologica";
+import Header from "@/components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="icon" href="/src/assets/escudo.svg	" />
+		<title>Técnico Universitario</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
 
-<style is:global>
+<style>
 	@font-face {
 		font-family: "HeyNovember";
 		src: url("/fonts/HeyNovember.ttf") format("ttf");
@@ -27,6 +28,5 @@ import "@fontsource-variable/geologica";
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #000;
 	}
 </style>

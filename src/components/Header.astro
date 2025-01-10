@@ -1,0 +1,230 @@
+---
+import Escudo from "@/components/Escudo.astro";
+---
+
+<header
+    id="landing-header"
+    class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40"
+>
+    <div class="flex flex-grow basis-0">
+        <a href="#home">
+            <img src="/src/assets/escudo.svg" alt="" />
+        </a>
+    </div>
+
+    <nav class="hidden xl:block sm:hidden">
+        <ul
+            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]: font-medium [&>li>a]:text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="/">Inicio</a></li>
+            <li><a href="#model-S">Noticias</a></li>
+            <li><a href="#model-3">Multimedia</a></li>
+            <li><a href="#model-X">Institución</a></li>
+            <li><a href="#model-Y">Plantel</a></li>
+        </ul>
+    </nav>
+    <nav class="flex flex-grow justify-end basis-0">
+        <ul
+            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li class="hidden xl:block sm:hidden">
+                <a
+                    href="https://www.vaz.com.ec/"
+                    target="_blank"
+                    rel="noopener noreferrer">Tienda</a
+                >
+            </li>
+            <li class="hidden xl:block sm:hidden">
+                <a
+                    href="https://www.tickets.superticket.ec/seller/tecnico-universitario-zp4s"
+                    target="_blank"
+                    rel="noopener noreferrer">Entradas</a
+                >
+            </li>
+            <li class="hidden xl:block sm:hidden"><a href="#">Contacto</a></li>
+            <li class="xl:hidden"><a id="menu-btn" href="#">Menú</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu desplegable en responsive -->
+    <nav
+        id="modal-menu"
+        class="xl:hidden hidden flex-col bg-white fixed top-0 left-0 right-0 bottom-0"
+    >
+        <div class="h-16 p-4 flex items-center justify-end">
+            <button id="close-btn" class="p-1">
+                <img
+                    class="text-black h-[16px]"
+                    src="/close-icon.svg"
+                    alt="Botón de cierre"
+                />
+            </button>
+        </div>
+
+        <div class="px-7">
+            <ul
+                class="pt-8 [&>li]:mb-4 [&>li>a]:text-black [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:py-4 [&>li>a]:pl-3"
+            >
+                <li>
+                    <a href="#model-S">
+                        Inicio
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-S">
+                        Noticias
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-3">
+                        Multimedia
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-X">
+                        Equipo
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-Y">
+                        Tienda
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-Y">
+                        Entradas
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="#model-Y">
+                        Contacto
+                        <img
+                            class="h-5"
+                            alt="arrow icon"
+                            src="/arrow-icon.svg"
+                        />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div
+        id="menu-backdrop"
+        class="absolute bg-red-300 backdrop-blur-lg rounded translate-x-[var(--left)] translate-y-[var(--top)]
+        top-0 left-0 w-[var(--width)] h-[var(--height)] transition-all duration-300 ease-in-out opacity-0 -z-10"
+    >
+    </div>
+</header>
+<!-- Responsive modalMenu -->
+<script>
+    const menuBtn = document.getElementById("menu-btn")!;
+    const modalMenu = document.querySelector("#modal-menu")!;
+    const menuItems = modalMenu.querySelectorAll("li>a ")!;
+    const closeBtn = document.querySelector("#close-btn")!;
+
+    function toggleDropdownMenu() {
+        if (modalMenu.classList.contains("hidden")) {
+            modalMenu.classList.remove("hidden");
+            modalMenu.classList.add("animate-blurred-fade-in");
+            modalMenu.classList.remove("animate-fade-out");
+        } else {
+            // Cuando se cierra
+            modalMenu.classList.remove("animate-blurred-fade-in");
+            modalMenu.classList.add("animate-fade-out");
+
+            // Espera a que termine la animación para ocultar el modal
+            modalMenu.addEventListener("animationend", function handler() {
+                modalMenu.classList.add("hidden");
+                modalMenu.removeEventListener("animationend", handler);
+            });
+        }
+    }
+
+    menuBtn.addEventListener("click", toggleDropdownMenu);
+    closeBtn.addEventListener("click", toggleDropdownMenu);
+
+    menuItems.forEach((Item) => {
+        Item.addEventListener("click", toggleDropdownMenu);
+    });
+</script>
+
+<script>
+    const menuBackDrop = document.querySelector(
+        "#menu-backdrop",
+    ) as HTMLElement;
+    const listItems = document.querySelectorAll("#landing-header li ");
+
+    listItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            const { left, top, width, height } = item.getBoundingClientRect();
+
+            menuBackDrop.style.setProperty("--left", `${left}px`);
+            menuBackDrop.style.setProperty("--top", `${top}px`);
+            menuBackDrop.style.setProperty("--width", `${width}px`);
+            menuBackDrop.style.setProperty("--height", `${height}px`);
+            menuBackDrop.style.opacity = "1";
+            menuBackDrop.style.visibility = "visible";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            menuBackDrop.style.opacity = "0";
+            menuBackDrop.style.visibility = "hidden";
+        });
+        item.addEventListener("click", () => {
+            menuBackDrop.style.opacity = "0";
+            menuBackDrop.style.visibility = "hidden";
+        });
+    });
+</script>
+<script>
+    const header = document.querySelector("#landing-header") as HTMLElement;
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px", // en cuanto se vea el elemento
+        threshold: 0.9, //porcentaje de visibilidad
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting } = entry;
+            if (isIntersecting) {
+                const color = entry.target.getAttribute("data-header-color")!;
+                console.log(color);
+                header.style.color = color;
+            }
+        });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll(".landing-section");
+    sections.forEach((section) => observer.observe(section));
+</script>
