@@ -1,0 +1,40 @@
+---
+import { PARTNERS } from "@/consts/Partners";
+---
+
+<section class="mt-20 md:mt-60 md:px-40">
+    <h3 class="uppercase text-center text-5xl font-semibold text-white">
+        Partners
+    </h3>
+    <p class="mt-4 text-center text-xl text-white">
+        Nuestros prinicipales patrocinadores son
+    </p>
+    <div
+        class="mt-12 grid select-none grid-cols-2 gap-2 md:gap-3 md:grid-cols-8"
+    >
+        {
+            PARTNERS.filter(({ id }) => id !== "infojobs").map(
+                ({ id, name, url, image }) => (
+                    <a
+                        class="company-link group relative flex h-24 items-center justify-center overflow-hidden md:h-32"
+                        title={`Visita la página del patrocinador ${name}`}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Link con el logo de ${name} que lleva a ${url}`}
+                    >
+                        <img
+                            src={`/img/partners/${id}.webp`}
+                            width={image.width}
+                            loading="lazy"
+                            height={image.height}
+                            fetchpriority="low"
+                            alt={`Logo de ${name}`}
+                            class="company-logo px-1 text-white transition group-hover:scale-110 group-focus:scale-110 md:px-4"
+                        />
+                    </a>
+                ),
+            )
+        }
+    </div>
+</section>
