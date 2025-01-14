@@ -46,7 +46,7 @@ type PartnerName =
     | "Moyolsa"
     | "Cooperativa Crea"
     | "Aguafina"
-    | "Infojobs"
+    | "InfoJobs"
 
 
 export interface Partners {

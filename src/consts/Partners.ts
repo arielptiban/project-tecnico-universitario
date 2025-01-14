@@ -40,7 +40,7 @@ export const PARTNERS: Array<Partners> = [
     {
         id: "optica-interandina",
         name: "Óptica Interandina",
-        url: "",
+        url: "http://opticasinterandina.com/",
         image: {
             width: 200,
             height: 49,

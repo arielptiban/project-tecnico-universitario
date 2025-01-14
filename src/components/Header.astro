@@ -79,12 +79,12 @@ import Escudo from "../components/Escudo.astro";
     <!-- Menu desplegable en responsive -->
     <nav
         id="modal-menu"
-        class="xl:hidden hidden flex-col bg-white fixed top-0 left-0 right-0 bottom-0"
+        class="xl:hidden flex-col bg-black fixed top-0 left-0 right-0 bottom-0 z-50 hidden opacity-0"
     >
         <div class="h-16 p-4 flex items-center justify-end">
             <button id="close-btn" class="p-1">
                 <img
-                    class="text-black h-[16px]"
+                    class="text-white h-[16px]"
                     src="/close-icon.svg"
                     alt="Botón de cierre"
                 />
@@ -93,7 +93,7 @@ import Escudo from "../components/Escudo.astro";
 
         <div class="px-7">
             <ul
-                class="pt-8 [&>li]:mb-4 [&>li>a]:text-black [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:py-4 [&>li>a]:pl-3"
+                class="pt-8 [&>li]:mb-4 [&>li>a]:text-white [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:py-4 [&>li>a]:pl-3"
             >
                 <li>
                     <a href="/">
