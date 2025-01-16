@@ -2,11 +2,214 @@
 
 ---
 
-<section>
-    <video
-        class="object-center object-cover h-full w-full blur-[1px]"
-        autoplay
-        muted
-        loop
-        src="/src/assets/video-hero.mp4"></video>
+<section
+    class="flex-grow bg-cover bg-center h-screen section-zoom"
+    style=" 
+    min-height: 60vh; 
+    max-height: 100vh;
+    "
+    id="banner"
+>
+    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+        <div class="text-center text-white px-6 md:px-12">
+            <h2
+                class="text-4xl md:text-9xl mb-4 animate-paint font-hey"
+                id="page-title"
+            >
+                Ambato cocido en mi pecho
+            </h2>
+            <p class="text-lg md:text-2xl mb-6" id="page-description">
+                Conoce nuestra nueva colección
+            </p>
+            <a
+                class="text-white text-sm font-medium border-[3px] border-white rounded bg-white/5 backdrop-blur-sm px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors mt-6"
+                id="info-button"
+                href="#"
+            >
+                Ir a la tienda
+            </a>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="absolute bottom-8 right-8 flex space-x-4">
+        <button
+            class="text-white text-sm font-medium border-[3px] border-white rounded bg-white/5 backdrop-blur-sm px-4 py-2 inline-block hover:bg-white hover:text-black transition-colors mt-6"
+            id="page-btn-1">1</button
+        >
+        <button
+            class="text-white text-sm font-medium border-[3px] border-white rounded bg-white/5 backdrop-blur-sm px-4 py-2 inline-block hover:bg-white hover:text-black transition-colors mt-6"
+            id="page-btn-2">2</button
+        >
+    </div>
 </section>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = 1;
+
+        const slides = [
+            {
+                image: "/public/img/banner.webp",
+                title: "Ambato cocido en mi pecho",
+                subtitle: "Conoce nuestra nueva colección",
+                buttonText: "Descubre más",
+                buttonHref: "https://www.vaz.com.ec/",
+            },
+            {
+                image: "/public/img/banner-2.webp",
+                title: "Pretemporada 2025",
+                subtitle: "Así se prepara el equipo para la nueva temporada",
+                buttonText: "Descubre más",
+                buttonHref: "https://www.vaz.com.ec/",
+            },
+        ];
+
+        const buttons = [
+            document.getElementById("page-btn-1"),
+            document.getElementById("page-btn-2"),
+        ];
+
+        function changePage(page: number) {
+            currentPage = page;
+
+            const titleElement = document.getElementById("page-title");
+            const descriptionElement =
+                document.getElementById("page-description");
+            const bannerElement = document.getElementById("banner");
+            const infoButton = document.getElementById("info-button");
+
+            if (
+                titleElement &&
+                descriptionElement &&
+                bannerElement &&
+                infoButton
+            ) {
+                titleElement.textContent = titles[page - 1];
+                descriptionElement.textContent = descriptions[page - 1];
+                infoButton.textContent = buttonInfo.info[page - 1];
+                bannerElement.style.background = `url(${backgroundImages[page - 1]})`;
+                bannerElement.style.backgroundSize = "cover";
+                bannerElement.style.backgroundPosition = "center";
+            }
+
+            buttons.forEach((button, index) => {
+                if (button) {
+                    if (index === page - 1) {
+                        button.style.backgroundColor = "white"; // Resalta el botón activo
+                        button.style.color = "black"; // Cambia el texto a negro para contraste
+                    } else {
+                        button.style.backgroundColor = ""; // Restablece el fondo de los demás botones
+                        button.style.color = "white"; // Restablece el texto a blanco
+                    }
+                }
+            });
+        }
+
+        buttons.forEach((button, index) => {
+            if (button) {
+                button.addEventListener("click", function () {
+                    changePage(index + 1);
+                });
+            }
+        });
+
+        function autoChangePage() {
+            currentPage = currentPage < 2 ? currentPage + 1 : 1;
+            changePage(currentPage);
+        }
+        let time = 15000;
+        setInterval(autoChangePage, time); // Cambia cada 5 segundos
+
+        // Inicializa la primera página
+        changePage(currentPage);
+        time = 0;
+    });
+</script> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentPage = 1;
+
+        const slides = [
+            {
+                image: "/img/banner.webp",
+                title: "Ambato cocido en mi pecho",
+                subtitle: "Conoce nuestra nueva colección",
+                buttonText: "Ir a la tienda",
+                buttonHref: "https://www.vaz.com.ec/",
+            },
+            {
+                image: "/img/banner-2.webp",
+                title: "Pretemporada 2025",
+                subtitle: "Así se prepara el equipo para la nueva temporada",
+                buttonText: "Descubre más",
+                buttonHref: "https://www.instagram.com/vaz.sport/",
+            },
+        ];
+
+        const buttons = [
+            document.getElementById("page-btn-1"),
+            document.getElementById("page-btn-2"),
+        ];
+
+        function changePage(page: number) {
+            currentPage = page;
+
+            const titleElement = document.getElementById("page-title");
+            const descriptionElement =
+                document.getElementById("page-description");
+            const bannerElement = document.getElementById("banner");
+            const infoButton = document.getElementById(
+                "info-button",
+            ) as HTMLAnchorElement;
+
+            if (
+                titleElement &&
+                descriptionElement &&
+                bannerElement &&
+                infoButton
+            ) {
+                titleElement.textContent = slides[page - 1].title;
+                descriptionElement.textContent = slides[page - 1].subtitle;
+                infoButton.textContent = slides[page - 1].buttonText;
+                infoButton.href = slides[page - 1].buttonHref;
+                infoButton.target = "_blank";
+                infoButton.rel = "noopener noreferrer";
+                bannerElement.style.backgroundImage = `url(${slides[page - 1].image})`;
+                bannerElement.style.backgroundSize = "cover";
+                bannerElement.style.backgroundPosition = "center";
+            }
+
+            buttons.forEach((button, index) => {
+                if (button) {
+                    if (index === page - 1) {
+                        button.style.backgroundColor = "white"; // Resalta el botón activo
+                        button.style.color = "black"; // Cambia el texto a negro para contraste
+                    } else {
+                        button.style.backgroundColor = ""; // Restablece el fondo de los demás botones
+                        button.style.color = "white"; // Restablece el texto a blanco
+                    }
+                }
+            });
+        }
+
+        buttons.forEach((button, index) => {
+            if (button) {
+                button.addEventListener("click", function () {
+                    changePage(index + 1);
+                });
+            }
+        });
+
+        function autoChangePage() {
+            currentPage = currentPage < slides.length ? currentPage + 1 : 1;
+            changePage(currentPage);
+        }
+
+        setInterval(autoChangePage, 10000); // Cambia cada 15 segundos
+
+        // Inicializa la primera página
+        changePage(currentPage);
+    });
+</script>
