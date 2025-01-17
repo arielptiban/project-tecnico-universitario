@@ -14,6 +14,7 @@ type TeamId =
     | "libertad"
     | "manta"
     | "vinotinto"
+    | "tecnico-universitario"
 
 type TeamName =
     | "Club Independiente del Valle"
@@ -31,6 +32,7 @@ type TeamName =
     | "Libertad Futbol Club"
     | "Manta Futbol Club"
     | "Vinotinto Futbol Club"
+    | "Club Técnico Universitario"
 
 
 type TeamShortName =
@@ -49,13 +51,13 @@ type TeamShortName =
     | "Libertad FC"
     | "Manta FC"
     | "Vinotinto FC"
-
+    | "Técnico U"
 
 export interface Teams {
     id: TeamId
     name: TeamName
     shortName: TeamShortName
-    estadio: string
+    stadium: string
     image: {
         name?: string
         width: number
